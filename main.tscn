@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://d2fjhv5mhcyki"]
+
+[node name="main" type="Node3D" unique_id=579114706]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=67068701]
+transform = Transform3D(-0.66341394, -0.010313286, 0.7481815, 0.55667037, 0.6613574, 0.50271714, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="floor" type="CSGBox3D" parent="." unique_id=1701443706]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35000014, -0.43108225, 0.6)
+use_collision = true
+size = Vector3(5.5, 0.10888672, 2.3)
+
+[node name="stairs" type="CSGCombiner3D" parent="." unique_id=385906196]
+use_collision = true
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="stairs" unique_id=2122925588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0215967, 0.17244297, 0.90000004)
+use_collision = true
+size = Vector3(0.6, 1, 1.8000001)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="stairs/CSGBox3D9" unique_id=714416781]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021596551, 0.17244297, -0.85)
+operation = 2
+size = Vector3(1.2, 1, 0.3)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="stairs/CSGBox3D9" unique_id=893466758]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021596551, 0.27244297, -0.65)
+operation = 2
+size = Vector3(1.2, 1, 0.3)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="stairs/CSGBox3D9" unique_id=2046487413]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021596551, 0.37244296, -0.44999996)
+operation = 2
+size = Vector3(1.2, 1, 0.3)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="stairs/CSGBox3D9" unique_id=1790968053]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021596551, 0.47244298, -0.24999994)
+operation = 2
+size = Vector3(1.2, 1, 0.3)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="stairs/CSGBox3D9" unique_id=1436694537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021596551, 0.572443, -0.049999952)
+operation = 2
+size = Vector3(1.2, 1, 0.3)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="stairs/CSGBox3D9" unique_id=144145148]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021596551, 0.67244303, 0.15000004)
+operation = 2
+size = Vector3(1.2, 1, 0.3)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="stairs/CSGBox3D9" unique_id=668586149]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021596551, 0.77244306, 0.35000008)
+operation = 2
+size = Vector3(1.2, 1, 0.3)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="stairs/CSGBox3D9" unique_id=665739227]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021596551, 0.872443, 0.55000013)
+operation = 2
+size = Vector3(1.2, 1, 0.3)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="stairs/CSGBox3D9" unique_id=1253531176]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021596551, 0.97244304, 0.7500002)
+operation = 2
+size = Vector3(1.2, 1, 0.3)
+
+[node name="room 1 floor" type="CSGCombiner3D" parent="." unique_id=166250618]
+use_collision = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="room 1 floor" unique_id=1323289019]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.09000337, 0.11737645, 0.71181643)
+size = Vector3(2.2, 1, 0.12792969)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="room 1 floor/CSGBox3D2" unique_id=1065298041]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.55, -0.099999994, 2.2351742e-08)
+operation = 2
+size = Vector3(0.5, 0.8, 0.3)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="room 1 floor" unique_id=1486443012]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.9099966, 0.11737645, 0.71181643)
+size = Vector3(2.2, 1, 0.12792969)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="room 1 floor/CSGBox3D5" unique_id=218486361]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.55, -0.099999994, 0)
+operation = 2
+size = Vector3(0.5, 0.8, 0.3)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="room 1 floor" unique_id=1086925582]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.9099967, 0.11737645, 1.3118165)
+size = Vector3(1, 1, 0.12792969)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="room 1 floor" unique_id=1683843323]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.9099966, 0.11737645, -0.005957067)
+size = Vector3(1.1, 1, 0.12792969)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="room 1 floor" unique_id=1512412014]
+transform = Transform3D(-2.9802322e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -2.9802322e-08, -2.3900032, 0.11737645, 0.71181643)
+size = Vector3(2.2, 1, 0.12792969)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="room 1 floor" unique_id=712003465]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2788884, 0.0931471, -0.43603516)
+size = Vector3(4.3, 1, 0.12792969)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="room 1 floor" unique_id=848879532]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3711116, 0.0931471, 0.8639649)
+size = Vector3(0.8, 1, 0.12792969)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="room 1 floor" unique_id=1588173850]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3711116, 0.0931471, 1.7639649)
+size = Vector3(0.8, 1, 0.12792969)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="room 1 floor" unique_id=592015349]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27888852, 0.0931471, 1.7639649)
+size = Vector3(4.3, 1, 0.12792969)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1333792700]
+transform = Transform3D(1, 0, 0, 0, 5.9604645e-08, 0.99999994, 0, -0.99999994, 5.9604645e-08, 1.3500001, 0.4883882, 0.312878)
+spot_range = 2.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." unique_id=175282818]
+transform = Transform3D(1, 0, 0, 0, 5.9604645e-08, 0.99999994, 0, -0.99999994, 5.9604645e-08, 0.25000012, 0.5752123, 0.8052819)
+spot_range = 2.0
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="." unique_id=64148700]
+transform = Transform3D(1, 0, 0, 0, 5.9604645e-08, 0.99999994, 0, -0.99999994, 5.9604645e-08, -0.64999986, 0.7431524, 1.1818402)
+spot_range = 2.0
