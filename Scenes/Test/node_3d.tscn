@@ -1,3 +1,8 @@
 [gd_scene format=3 uid="uid://d13ohbnhddrdx"]
 
+[ext_resource type="Script" uid="uid://u24bdhjbtwyi" path="res://Scripts/Interaction/Interactor.cs" id="1_kyfn6"]
+
 [node name="Node3D" type="Node3D" unique_id=1593253795]
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1365333519]
+script = ExtResource("1_kyfn6")

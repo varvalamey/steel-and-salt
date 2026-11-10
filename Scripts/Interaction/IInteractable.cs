@@ -55,7 +55,6 @@ public interface IInteractable
 {
     /// <summary>Вид взаимодействия (дублирует Data.Type для быстрых проверок/фильтрации).</summary>
     InteractionType InteractionType { get; }
-
     /// <summary>Данные для UI. Принимает interactor, т.к. подсказка может зависеть от игрока («Открыть» vs «Заперто»).</summary>
     InteractionData GetInteractionData(Node interactor);
 
