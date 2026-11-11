@@ -323,7 +323,4 @@ public partial class JournalUI : Control
         JournalSection.Items => ItemsTitle,
         _ => NotesTitle,
     };
-
-    /// <summary>Если в Input Map нет действия — создаём с клавишей J.</summary>
-
 }

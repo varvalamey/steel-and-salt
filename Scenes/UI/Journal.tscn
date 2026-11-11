@@ -198,6 +198,7 @@ theme_override_constants/separation = 4
 
 [node name="Empty" type="Label" parent="JournalUI/Book/Page/ContentsPage" unique_id=1980612076]
 modulate = Color(1, 1, 1, 0.6)
+custom_minimum_size = Vector2(4, 0)
 layout_mode = 2
 size_flags_vertical = 6
 text = "Здесь пока ничего нет."
