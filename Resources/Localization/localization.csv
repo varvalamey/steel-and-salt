@@ -1,0 +1,33 @@
+keys,en,ru
+MENU_MAIN_NEWGAME,New game,Новая игра
+MENU_MAIN_CONTINUE,Continue,Продолжить
+MENU_MAIN_SETTINGS,Settings,Настройки
+MENU_MAIN_CREDITS,Credits,Титры
+MENU_MAIN_EXIT,Exit,Выйти
+MENU_SETTINGS_TITLE,Settings,Настройки
+MENU_SETTINGS_CONTROLS,Controls,Управление
+MENU_SETTINGS_SOUND,Sound,Звук
+MENU_SETTINGS_VIDEO,Video,Видео
+MENU_SETTINGS_FORWARD,Forward,Вперед
+MENU_SETTINGS_BACKWARDS,Backwards,Назад
+MENU_SETTINGS_LEFT,Left,Влево
+MENU_SETTINGS_RIGHT,Right,Вправо
+MENU_SETTINGS_INTERACT,Interact,Взаимодействие
+MENU_SETTINGS_JOURNAL,Journal,Журнал
+MENU_SETTINGS_INVENTORY,Inventory,Инвентарь
+MENU_SETTINGS_SAVE,Save,Сохранить
+MENU_SETTINGS_CANCEL,Cancel,Отменить
+MENU_SETTINGS_VOLUMEGENERAL,General,Общая
+MENU_SETTINGS_VOLUMESFX,SFX,Эффекты
+MENU_SETTINGS_VOLUMEMUSIC,Music,Музыка
+MENU_SETTINGS_BRIGHTNESS,Brightness,Яркость
+MENU_SETTINGS_LANGUAGE,Language,Язык
+MENU_CREDITS_DONATE,Support additionally,Поддержать дополнительно
+MENU_BACK,Back,Назад
+MENU_SAVESCREEN_TITLE,Choose save,Выберите сохранение
+MENU_SAVESCREEN_SAVE1,Save 1,Сохранение 1
+MENU_SAVESCREEN_SAVE2,Save 2,Сохранение 2
+MENU_SAVESCREEN_SAVE3,Save 3,Сохранение 3
+JOURNAL_BOOKMARK_ITEMS,Findings,Улики
+JOURNAL_BOOKMARK_NOTES,Notes,Записи
+JOURNAL_BOOKMARK_WIKI,Guide,Справочник

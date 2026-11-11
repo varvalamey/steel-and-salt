@@ -1,0 +1,265 @@
+[gd_scene format=3 uid="uid://b7efpiswodin4"]
+
+[ext_resource type="Script" uid="uid://d01n2btdtpqir" path="res://Scripts/Journal/JournalUI.cs" id="1_ui"]
+[ext_resource type="Script" uid="uid://dfomk4n7gbtqh" path="res://Scripts/Journal/JournalBookmark.cs" id="2_bookmark"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_badge"]
+font_size = 22
+font_color = Color(1, 0.85, 0.2, 1)
+outline_size = 6
+outline_color = Color(0.25, 0.05, 0.02, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_cover"]
+bg_color = Color(0.29, 0.17, 0.1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.5)
+shadow_size = 12
+
+[sub_resource type="Theme" id="Theme_ink"]
+Button/colors/font_color = Color(0.22, 0.14, 0.08, 1)
+Button/colors/font_disabled_color = Color(0.22, 0.14, 0.08, 0.3)
+Button/colors/font_focus_color = Color(0.22, 0.14, 0.08, 1)
+Button/colors/font_hover_color = Color(0.55, 0.12, 0.1, 1)
+Button/colors/font_hover_pressed_color = Color(0.55, 0.12, 0.1, 1)
+Button/colors/font_pressed_color = Color(0.55, 0.12, 0.1, 1)
+HSeparator/constants/separation = 12
+Label/colors/font_color = Color(0.22, 0.14, 0.08, 1)
+RichTextLabel/colors/default_color = Color(0.22, 0.14, 0.08, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_paper"]
+content_margin_left = 36.0
+content_margin_top = 28.0
+content_margin_right = 36.0
+content_margin_bottom = 24.0
+bg_color = Color(0.93, 0.88, 0.76, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="Journal" type="CanvasLayer" unique_id=1614056806]
+layer = 10
+
+[node name="JournalUI" type="Control" parent="." unique_id=402589069 node_paths=PackedStringArray("BookmarkContainer", "ContentsPage", "ContentsTitle", "ContentsList", "ContentsEmptyLabel", "EntryPage", "EntryTitle", "EntryIllustration", "EntryText", "EntryScroll", "BackButton", "PrevButton", "NextButton", "PageNumber")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ui")
+BookmarkContainer = NodePath("Book/Bookmarks")
+ContentsPage = NodePath("Book/Page/ContentsPage")
+ContentsTitle = NodePath("Book/Page/ContentsPage/Title")
+ContentsList = NodePath("Book/Page/ContentsPage/Scroll/List")
+ContentsEmptyLabel = NodePath("Book/Page/ContentsPage/Empty")
+EntryPage = NodePath("Book/Page/EntryPage")
+EntryTitle = NodePath("Book/Page/EntryPage/Header/Title")
+EntryIllustration = NodePath("Book/Page/EntryPage/Illustration")
+EntryText = NodePath("Book/Page/EntryPage/Scroll/Text")
+EntryScroll = NodePath("Book/Page/EntryPage/Scroll")
+BackButton = NodePath("Book/Page/EntryPage/Header/BackButton")
+PrevButton = NodePath("Book/Page/EntryPage/Footer/PrevButton")
+NextButton = NodePath("Book/Page/EntryPage/Footer/NextButton")
+PageNumber = NodePath("Book/Page/EntryPage/Footer/PageNumber")
+
+[node name="Dim" type="ColorRect" parent="JournalUI" unique_id=673602328]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.55)
+
+[node name="Book" type="Control" parent="JournalUI" unique_id=340679493]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -290.0
+offset_right = 220.0
+offset_bottom = 290.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bookmarks" type="VBoxContainer" parent="JournalUI/Book" unique_id=475956503]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -12.0
+offset_top = 48.0
+offset_right = 128.0
+offset_bottom = 160.0
+theme_override_constants/separation = 10
+
+[node name="ItemsBookmark" type="Button" parent="JournalUI/Book/Bookmarks" unique_id=1858428509 node_paths=PackedStringArray("UnreadBadge")]
+custom_minimum_size = Vector2(140, 44)
+layout_mode = 2
+toggle_mode = true
+text = "JOURNAL_BOOKMARK_ITEMS"
+script = ExtResource("2_bookmark")
+Section = 1
+UnreadBadge = NodePath("Badge")
+RibbonColor = Color(0.16, 0.33, 0.36, 1)
+
+[node name="Badge" type="Label" parent="JournalUI/Book/Bookmarks/ItemsBookmark" unique_id=1099253297]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "!"
+label_settings = SubResource("LabelSettings_badge")
+horizontal_alignment = 1
+
+[node name="NotesBookmark" type="Button" parent="JournalUI/Book/Bookmarks" unique_id=1400901932 node_paths=PackedStringArray("UnreadBadge")]
+custom_minimum_size = Vector2(140, 44)
+layout_mode = 2
+toggle_mode = true
+text = "JOURNAL_BOOKMARK_NOTES"
+script = ExtResource("2_bookmark")
+UnreadBadge = NodePath("Badge")
+
+[node name="Badge" type="Label" parent="JournalUI/Book/Bookmarks/NotesBookmark" unique_id=423458665]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "!"
+label_settings = SubResource("LabelSettings_badge")
+horizontal_alignment = 1
+
+[node name="Cover" type="Panel" parent="JournalUI/Book" unique_id=1424029208]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBox_cover")
+
+[node name="Page" type="PanelContainer" parent="JournalUI/Book" unique_id=134943008]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = -14.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ink")
+theme_override_styles/panel = SubResource("StyleBox_paper")
+
+[node name="ContentsPage" type="VBoxContainer" parent="JournalUI/Book/Page" unique_id=287239119]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="JournalUI/Book/Page/ContentsPage" unique_id=131192288]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Записки"
+horizontal_alignment = 1
+
+[node name="Separator" type="HSeparator" parent="JournalUI/Book/Page/ContentsPage" unique_id=1382317456]
+layout_mode = 2
+
+[node name="Scroll" type="ScrollContainer" parent="JournalUI/Book/Page/ContentsPage" unique_id=1980204477]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="List" type="VBoxContainer" parent="JournalUI/Book/Page/ContentsPage/Scroll" unique_id=139580495]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="Empty" type="Label" parent="JournalUI/Book/Page/ContentsPage" unique_id=1980612076]
+modulate = Color(1, 1, 1, 0.6)
+layout_mode = 2
+size_flags_vertical = 6
+text = "Здесь пока ничего нет."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="EntryPage" type="VBoxContainer" parent="JournalUI/Book/Page" unique_id=844445996]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="HBoxContainer" parent="JournalUI/Book/Page/EntryPage" unique_id=313474210]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="JournalUI/Book/Page/EntryPage/Header" unique_id=840101745]
+layout_mode = 2
+text = "← Оглавление"
+flat = true
+
+[node name="Title" type="Label" parent="JournalUI/Book/Page/EntryPage/Header" unique_id=1288712609]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Название"
+horizontal_alignment = 2
+text_overrun_behavior = 3
+
+[node name="Separator" type="HSeparator" parent="JournalUI/Book/Page/EntryPage" unique_id=51824994]
+layout_mode = 2
+
+[node name="Illustration" type="TextureRect" parent="JournalUI/Book/Page/EntryPage" unique_id=1051876138]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Scroll" type="ScrollContainer" parent="JournalUI/Book/Page/EntryPage" unique_id=2004583200]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Text" type="RichTextLabel" parent="JournalUI/Book/Page/EntryPage/Scroll" unique_id=1138086362]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+fit_content = true
+
+[node name="Footer" type="HBoxContainer" parent="JournalUI/Book/Page/EntryPage" unique_id=323783826]
+layout_mode = 2
+
+[node name="PrevButton" type="Button" parent="JournalUI/Book/Page/EntryPage/Footer" unique_id=71785840]
+layout_mode = 2
+text = "◄"
+flat = true
+
+[node name="PageNumber" type="Label" parent="JournalUI/Book/Page/EntryPage/Footer" unique_id=464385142]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1 / 1"
+horizontal_alignment = 1
+
+[node name="NextButton" type="Button" parent="JournalUI/Book/Page/EntryPage/Footer" unique_id=43392108]
+layout_mode = 2
+text = "►"
+flat = true

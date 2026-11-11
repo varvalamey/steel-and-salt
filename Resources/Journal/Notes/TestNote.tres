@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="JournalEntry" format=3 uid="uid://d3vfke6oj5138"]
+
+[ext_resource type="Script" uid="uid://dol07sc36kd6r" path="res://Scripts/Journal/JournalEntry.cs" id="1_axbbf"]
+[ext_resource type="Texture2D" uid="uid://doulsd5ymr30o" path="res://icon.svg" id="1_mgj3l"]
+
+[resource]
+script = ExtResource("1_axbbf")
+Id = "testnote"
+Title = "testnote"
+Description = "testStestEtestwtestDtestrottestukwtestatestbtestctestrintestetesthtestmtestutestreallyjustatesthtestctestktestntest
+yew tgq flp bbzj"
+Icon = ExtResource("1_mgj3l")
+Illustration = ExtResource("1_mgj3l")
+metadata/_custom_type_script = "uid://dol07sc36kd6r"
