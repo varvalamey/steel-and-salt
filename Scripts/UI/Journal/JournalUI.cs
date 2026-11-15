@@ -22,30 +22,30 @@ public partial class JournalUI : Control
 
     [ExportGroup("Bookmarks")]
     // Контейнер, в котором лежат JournalBookmark (ищутся среди прямых детей)
-    [Export] public Control BookmarkContainer { get; set; }
+    [Export] private Control BookmarkContainer { get; set; }
 
     [ExportGroup("Contents Page")]
-    [Export] public Control ContentsPage { get; set; }
-    [Export] public Label ContentsTitle { get; set; }
-    [Export] public Container ContentsList { get; set; }
-    [Export] public Control ContentsEmptyLabel { get; set; }
+    [Export] private Control ContentsPage { get; set; }
+    [Export] private Label ContentsTitle { get; set; }
+    [Export] private Container ContentsList { get; set; }
+    [Export] private Control ContentsEmptyLabel { get; set; }
 
     [ExportGroup("Entry Page")]
-    [Export] public Control EntryPage { get; set; }
-    [Export] public Label EntryTitle { get; set; }
-    [Export] public TextureRect EntryIllustration { get; set; }
-    [Export] public RichTextLabel EntryText { get; set; }
-    [Export] public ScrollContainer EntryScroll { get; set; }
-    [Export] public BaseButton BackButton { get; set; }
-    [Export] public BaseButton PrevButton { get; set; }
-    [Export] public BaseButton NextButton { get; set; }
-    [Export] public Label PageNumber { get; set; }
+    [Export] private Control EntryPage { get; set; }
+    [Export] private Label EntryTitle { get; set; }
+    [Export] private TextureRect EntryIllustration { get; set; }
+    [Export] private RichTextLabel EntryText { get; set; }
+    [Export] private ScrollContainer EntryScroll { get; set; }
+    [Export] private BaseButton BackButton { get; set; }
+    [Export] private BaseButton PrevButton { get; set; }
+    [Export] private BaseButton NextButton { get; set; }
+    [Export] private Label PageNumber { get; set; }
 
     [ExportGroup("Texts")]
-    [Export] public string NotesTitle { get; set; } = "Записки";
-    [Export] public string ItemsTitle { get; set; } = "Предметы";
-    [Export] public string UnreadMarker { get; set; } = "!";
-    [Export] public Color UnreadColor { get; set; } = new(0.75f, 0.10f, 0.05f);
+    [Export] private string NotesTitle { get; set; } = "JOURNAL_BOOKMARK_NOTES";
+    [Export] private string ItemsTitle { get; set; } = "JOURNAL_BOOKMARK_ITEMS";
+    [Export] private string UnreadMarker { get; set; } = "!";
+    [Export] private Color UnreadColor { get; set; } = new(0.75f, 0.10f, 0.05f);
 
     public bool IsOpen => Visible;
     public JournalSection CurrentSection { get; private set; }

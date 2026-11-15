@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b7efpiswodin4"]
 
-[ext_resource type="Script" uid="uid://d01n2btdtpqir" path="res://Scripts/Journal/JournalUI.cs" id="1_ui"]
-[ext_resource type="Script" uid="uid://dfomk4n7gbtqh" path="res://Scripts/Journal/JournalBookmark.cs" id="2_bookmark"]
+[ext_resource type="Script" uid="uid://d01n2btdtpqir" path="res://Scripts/UI/Journal/JournalUI.cs" id="1_5qo4m"]
+[ext_resource type="Script" uid="uid://dfomk4n7gbtqh" path="res://Scripts/UI/Journal/JournalBookmark.cs" id="2_v5035"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_badge"]
 font_size = 22
@@ -51,7 +51,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ui")
+script = ExtResource("1_5qo4m")
 BookmarkContainer = NodePath("Book/Bookmarks")
 ContentsPage = NodePath("Book/Page/ContentsPage")
 ContentsTitle = NodePath("Book/Page/ContentsPage/Title")
@@ -106,7 +106,7 @@ custom_minimum_size = Vector2(140, 44)
 layout_mode = 2
 toggle_mode = true
 text = "JOURNAL_BOOKMARK_ITEMS"
-script = ExtResource("2_bookmark")
+script = ExtResource("2_v5035")
 Section = 1
 UnreadBadge = NodePath("Badge")
 RibbonColor = Color(0.16, 0.33, 0.36, 1)
@@ -132,7 +132,7 @@ custom_minimum_size = Vector2(140, 44)
 layout_mode = 2
 toggle_mode = true
 text = "JOURNAL_BOOKMARK_NOTES"
-script = ExtResource("2_bookmark")
+script = ExtResource("2_v5035")
 UnreadBadge = NodePath("Badge")
 
 [node name="Badge" type="Label" parent="JournalUI/Book/Bookmarks/NotesBookmark" unique_id=423458665]
@@ -180,7 +180,7 @@ layout_mode = 2
 [node name="Title" type="Label" parent="JournalUI/Book/Page/ContentsPage" unique_id=131192288]
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
-text = "Записки"
+text = "JOURNAL_BOOKMARK_NOTES"
 horizontal_alignment = 1
 
 [node name="Separator" type="HSeparator" parent="JournalUI/Book/Page/ContentsPage" unique_id=1382317456]
@@ -201,7 +201,7 @@ modulate = Color(1, 1, 1, 0.6)
 custom_minimum_size = Vector2(4, 0)
 layout_mode = 2
 size_flags_vertical = 6
-text = "Здесь пока ничего нет."
+text = "JOURNAL_CONTENTS_EMPTY"
 horizontal_alignment = 1
 autowrap_mode = 3
 
