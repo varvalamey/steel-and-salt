@@ -16,10 +16,8 @@ public partial class Interactor : RayCast3D
     [Signal] public delegate void TargetChangedEventHandler(Node target);          // null — цели нет
     [Signal] public delegate void HoldProgressChangedEventHandler(float progress);  // 0..1, 0 — сброс
     [Signal] public delegate void InteractionPerformedEventHandler(Node target, int result);
-
     /// <summary>Подсказка изменилась (текст, доступность, причина). null — прятать UI.</summary>
     public event Action<InteractionPrompt?> PromptChanged;
-
     /// <summary>Кто взаимодействует (тело игрока). Пусто — берётся Owner сцены.</summary>
     [Export] public Node3D Actor { get; set; }
     [Export] public StringName InteractAction { get; set; } = "interact";

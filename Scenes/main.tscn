@@ -60,7 +60,7 @@ operation = 2
 size = Vector3(1.2, 1, 0.3)
 
 [node name="CSGBox3D17" type="CSGBox3D" parent="stairs/CSGBox3D9" unique_id=1253531176]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021596551, 0.97244304, 0.7500002)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02159667, 0.97244304, 0.7500002)
 operation = 2
 size = Vector3(1.2, 1, 0.3)
 
