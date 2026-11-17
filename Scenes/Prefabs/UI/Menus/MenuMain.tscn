@@ -1,9 +1,25 @@
 [gd_scene format=3 uid="uid://d25k4ha77s2hn"]
 
-[node name="MenuMain" type="Control" unique_id=1955562498]
+[ext_resource type="Script" uid="uid://dty4de52jgl56" path="res://Scripts/UI/Menus/MenuMain.cs" id="1_ok167"]
+[ext_resource type="PackedScene" uid="uid://2vpfinqh3mts" path="res://Scenes/Prefabs/UI/Overlay/PopupConfirmation.tscn" id="2_r8nxv"]
+
+[node name="MenuMain" type="Control" unique_id=1955562498 node_paths=PackedStringArray("btnQuit", "popup")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ok167")
+btnQuit = NodePath("Button")
+popup = NodePath("PopupConfirmation")
+
+[node name="PopupConfirmation" parent="." unique_id=211786670 instance=ExtResource("2_r8nxv")]
+
+[node name="Button" type="Button" parent="." unique_id=898735463]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 85.0
+offset_right = 149.0
+offset_bottom = 128.0
+text = "quit"

@@ -1,8 +1,50 @@
 [gd_scene format=3 uid="uid://d13ohbnhddrdx"]
 
 [ext_resource type="Script" uid="uid://u24bdhjbtwyi" path="res://Scripts/Interaction/Interactor.cs" id="1_kyfn6"]
+[ext_resource type="Script" uid="uid://clikj6uf6xxsh" path="res://Scripts/UI/Journal/JournalPickup.cs" id="2_5i21k"]
+[ext_resource type="Resource" uid="uid://d3vfke6oj5138" path="res://Resources/Journal/Notes/TestNote.tres" id="3_mr8tt"]
+[ext_resource type="Resource" uid="uid://b6uaj6g035dsk" path="res://Resources/Journal/Items/test_item.tres" id="4_mr8tt"]
+[ext_resource type="PackedScene" uid="uid://b7efpiswodin4" path="res://Scenes/Prefabs/UI/Overlay/Journal.tscn" id="5_41ure"]
 
-[node name="Node3D" type="Node3D" unique_id=1593253795]
+[sub_resource type="BoxMesh" id="BoxMesh_3uvyx"]
 
-[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1365333519]
+[sub_resource type="BoxShape3D" id="BoxShape3D_3uvyx"]
+
+[node name="PickupTest" type="Node3D" unique_id=1593253795]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2141512654]
+transform = Transform3D(1, 0, 0, 0, 0.47831744, 0.878187, 0, -0.878187, 0.47831744, 0, 1.3163126, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1050076284]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.124051094, 1.3762517)
+
+[node name="Interactor" type="RayCast3D" parent="Camera3D" unique_id=1049243971 node_paths=PackedStringArray("Actor")]
 script = ExtResource("1_kyfn6")
+Actor = NodePath("..")
+metadata/_custom_type_script = "uid://u24bdhjbtwyi"
+
+[node name="Note" type="Node3D" parent="." unique_id=569612071]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Note" unique_id=600067449]
+mesh = SubResource("BoxMesh_3uvyx")
+
+[node name="Area3D" type="Area3D" parent="Note" unique_id=906257117]
+script = ExtResource("2_5i21k")
+Entry = ExtResource("3_mr8tt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Note/Area3D" unique_id=737740102]
+shape = SubResource("BoxShape3D_3uvyx")
+
+[node name="item" type="Node3D" parent="." unique_id=1818877350]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="item" unique_id=563666963]
+mesh = SubResource("BoxMesh_3uvyx")
+
+[node name="Area3D" type="Area3D" parent="item" unique_id=2013514007]
+script = ExtResource("2_5i21k")
+Entry = ExtResource("4_mr8tt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="item/Area3D" unique_id=1385133323]
+shape = SubResource("BoxShape3D_3uvyx")
+
+[node name="Journal" parent="." unique_id=1614056806 instance=ExtResource("5_41ure")]
