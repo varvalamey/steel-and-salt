@@ -1,0 +1,65 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://combat/ghost.gd" id="1_ghost"]
+[ext_resource type="Script" path="res://combat/ghost_phase.gd" id="2_phase_script"]
+[ext_resource type="Resource" path="res://combat/phases/ghost_phase_1.tres" id="3_phase_1"]
+[ext_resource type="Resource" path="res://combat/phases/ghost_phase_2.tres" id="4_phase_2"]
+[ext_resource type="Resource" path="res://combat/phases/ghost_phase_3.tres" id="5_phase_3"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_body"]
+radius = 0.3
+height = 1.7
+
+[sub_resource type="SphereMesh" id="SphereMesh_marker"]
+radius = 0.09
+height = 0.18
+
+[sub_resource type="StandardMaterial3D" id="Mat_rapier"]
+albedo_color = Color(0.8, 0.9, 1, 0.6)
+transparency = 1
+shading_mode = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_rapier"]
+material = SubResource("Mat_rapier")
+size = Vector3(0.02, 0.02, 0.9)
+
+[node name="Ghost" type="Node3D" node_paths=PackedStringArray("body_mesh", "head_marker", "arm_marker", "body_marker", "legs_marker")]
+script = ExtResource("1_ghost")
+phases = Array[ExtResource("2_phase_script")]([ExtResource("3_phase_1"), ExtResource("4_phase_2"), ExtResource("5_phase_3")])
+body_mesh = NodePath("Visual/Body")
+head_marker = NodePath("Visual/HeadMarker")
+arm_marker = NodePath("Visual/ArmMarker")
+body_marker = NodePath("Visual/BodyMarker")
+legs_marker = NodePath("Visual/LegsMarker")
+
+[node name="Visual" type="Node3D" parent="."]
+
+[node name="Body" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+cast_shadow = 0
+mesh = SubResource("CapsuleMesh_body")
+
+[node name="Rapier" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 1.1, -0.55)
+cast_shadow = 0
+mesh = SubResource("BoxMesh_rapier")
+
+[node name="HeadMarker" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55, -0.32)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_marker")
+
+[node name="ArmMarker" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 1.1, -0.2)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_marker")
+
+[node name="BodyMarker" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0, -0.34)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_marker")
+
+[node name="LegsMarker" type="MeshInstance3D" parent="Visual"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -0.26)
+cast_shadow = 0
+mesh = SubResource("SphereMesh_marker")

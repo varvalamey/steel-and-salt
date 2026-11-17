@@ -1,0 +1,170 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://combat/duel_hud.gd" id="1_hud"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_bar_bg"]
+bg_color = Color(0.08, 0.1, 0.14, 0.75)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_bar_fill"]
+bg_color = Color(0.75, 0.85, 1, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="DuelHud" type="CanvasLayer" node_paths=PackedStringArray("root", "phase_label", "warmth_label", "concentration_bar", "counter_hint", "message_label", "head_label", "arm_label", "body_label", "legs_label")]
+layer = 5
+script = ExtResource("1_hud")
+root = NodePath("Root")
+phase_label = NodePath("Root/PhaseLabel")
+warmth_label = NodePath("Root/Status/WarmthLabel")
+concentration_bar = NodePath("Root/Status/ConcentrationBar")
+counter_hint = NodePath("Root/Status/CounterHint")
+message_label = NodePath("Root/MessageLabel")
+head_label = NodePath("Root/ZoneCross/HeadLabel")
+arm_label = NodePath("Root/ZoneCross/Middle/ArmLabel")
+body_label = NodePath("Root/ZoneCross/Middle/BodyLabel")
+legs_label = NodePath("Root/ZoneCross/LegsLabel")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PhaseLabel" type="Label" parent="Root"]
+layout_mode = 1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 24.0
+offset_right = 300.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+
+[node name="MessageLabel" type="Label" parent="Root"]
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -160.0
+offset_right = 300.0
+offset_bottom = -110.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 34
+horizontal_alignment = 1
+
+[node name="ZoneCross" type="VBoxContainer" parent="Root"]
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -170.0
+offset_top = -270.0
+offset_right = 170.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="HeadLabel" type="Label" parent="Root/ZoneCross"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 1
+
+[node name="Middle" type="HBoxContainer" parent="Root/ZoneCross"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ArmLabel" type="Label" parent="Root/ZoneCross/Middle"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 1
+
+[node name="BodyLabel" type="Label" parent="Root/ZoneCross/Middle"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 1
+
+[node name="LegsLabel" type="Label" parent="Root/ZoneCross"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 1
+
+[node name="Status" type="VBoxContainer" parent="Root"]
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -120.0
+offset_right = 200.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="WarmthLabel" type="Label" parent="Root/Status"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.72, 0.4, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 1
+
+[node name="ConcentrationBar" type="ProgressBar" parent="Root/Status"]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBox_bar_bg")
+theme_override_styles/fill = SubResource("StyleBox_bar_fill")
+show_percentage = false
+
+[node name="CounterHint" type="Label" parent="Root/Status"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.95, 0.6, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 20
+text = "COMBAT_COUNTER_READY"
+horizontal_alignment = 1
+
+[node name="ControlsHint" type="Label" parent="Root"]
+layout_mode = 1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -110.0
+offset_right = 460.0
+offset_bottom = -16.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 0.6)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 14
+text = "COMBAT_CONTROLS_HINT"

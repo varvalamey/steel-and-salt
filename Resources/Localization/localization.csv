@@ -32,3 +32,29 @@ JOURNAL_BOOKMARK_ITEMS,Findings,Улики
 JOURNAL_BOOKMARK_NOTES,Notes,Записи
 JOURNAL_CONTENTS_EMPTY,Nothing here yet,Записей пока что нет
 JOURNAL_BOOKMARK_WIKI,Guide,Справочник
+COMBAT_ZONE_NONE,—,—
+COMBAT_ZONE_HEAD,Head [W],Голова [W]
+COMBAT_ZONE_ARM,Arm [A],Рука [A]
+COMBAT_ZONE_BODY,Body [D],Корпус [D]
+COMBAT_ZONE_LEGS,Legs [S],Ноги [S]
+COMBAT_WARMTH,Warmth,Тепло
+COMBAT_PHASE,Phase %d,Фаза %d
+COMBAT_PHASE_1,Denial,Отрицание
+COMBAT_PHASE_2,Anger,Гнев
+COMBAT_PHASE_3,Despair,Отчаяние
+COMBAT_COUNTER_READY,SPACE — iron counter!,ПРОБЕЛ — железная контратака!
+COMBAT_MESSAGE_PARRY,Parry!,Парирование!
+COMBAT_MESSAGE_BLOCK,Blocked,Блок
+COMBAT_MESSAGE_HIT_TAKEN,You were hit,Пропущен удар
+COMBAT_MESSAGE_HIT,Hit,Попадание
+COMBAT_MESSAGE_DEFLECTED,Deflected,Отражено
+COMBAT_MESSAGE_COUNTER,Iron counter!,Железная контратака!
+COMBAT_MESSAGE_COUNTER_NOT_READY,Not focused enough,Не хватает концентрации
+COMBAT_MESSAGE_PHASE_BROKEN,The ghost falters,Призрак дрогнул
+COMBAT_MESSAGE_WIN,The ghost is broken,Призрак сломлен
+COMBAT_MESSAGE_LOSE,Your warmth is gone,Тепло иссякло
+COMBAT_CONTROLS_HINT,"Hold W/A/D/S — zone   LMB — attack   RMB — block
+Red — ghost's swing (block it)   Blue — ghost's guard (don't hit it)
+Full focus: SPACE — counter","Держи W/A/D/S — зона   ЛКМ — атака   ПКМ — блок
+Красная — замах призрака (блокируй)   Синяя — защита призрака (туда не бей)
+Полная концентрация: ПРОБЕЛ — контратака"

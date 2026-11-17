@@ -1,15 +1,24 @@
 class_name Player
 extends CharacterBody3D
+## Нора в режиме расследования: ходьба относительно камеры, быстрый шаг, подъём на ступеньки,
+## камера из-за правого плеча (пружинные рычаги не дают ей уйти в стены).
+## На время дуэли управление отключается через controls_enabled.
 
 @export_group("Movement")
 @export var walk_speed: float = 3.0
+## Скорость при удержании fast_walk (Shift).
 @export var fast_walk_speed: float = 6.0
 @export var acceleration: float = 10.0
+## Как быстро модель разворачивается в сторону движения.
 @export var turn_speed: float = 10.0
+## Максимальная высота ступеньки, на которую игрок заходит без прыжка.
 @export var step_height: float = 0.35
 
 @export_group("Camera")
 @export var mouse_sensitivity: float = 0.003
+
+## false — игрок не ходит и не крутит камеру (дуэль, катсцены). Гравитация продолжает работать.
+var controls_enabled: bool = true
 
 @onready var _model: Node3D = $Model
 @onready var _camera_pivot: Node3D = $CameraPivot
@@ -30,7 +39,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event is InputEventMouseButton and event.pressed \
 			and Input.mouse_mode != Input.MOUSE_MODE_CAPTURED:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	elif event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+	elif controls_enabled and event is InputEventMouseMotion \
+			and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		_camera_pivot.rotate_y(-event.relative.x * mouse_sensitivity)
 
 
@@ -38,7 +48,9 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= _gravity * delta
 
-	var input := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
+	var input := Vector2.ZERO
+	if controls_enabled:
+		input = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	var direction := _camera_pivot.global_basis * Vector3(input.x, 0.0, input.y)
 	direction.y = 0.0
 	direction = direction.normalized() * input.length()
@@ -57,6 +69,16 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 
 
+## Мгновенно развернуть модель лицом к точке (например, к призраку в начале дуэли).
+func face_towards(point: Vector3) -> void:
+	var offset := point - global_position
+	if Vector2(offset.x, offset.z).length_squared() < 0.0001:
+		return
+	_model.global_rotation.y = atan2(-offset.x, -offset.z)
+
+
+## Шаг вверх: если впереди препятствие не выше step_height и за ним пол, поднимаем игрока на него.
+## true — шаг сделан, move_and_slide в этом кадре не нужен.
 func _try_step_up(motion: Vector3) -> bool:
 	if not is_on_floor() or motion.length_squared() < 1e-8:
 		return false
@@ -73,7 +95,7 @@ func _try_step_up(motion: Vector3) -> bool:
 	var hit := KinematicCollision3D.new()
 	if not test_move(ahead, -up, hit):
 		return false
-	var probe := hit.get_position() + motion.normalized() * 0.02
+	var probe := hit.get_position() + motion.normalized() * 0.02 # чуть дальше края, чтобы попасть в верх ступеньки
 	var query := PhysicsRayQueryParameters3D.create(
 		probe + Vector3.UP * 0.05, probe - Vector3.UP * 0.05, collision_mask, [get_rid()])
 	var ground := get_world_3d().direct_space_state.intersect_ray(query)

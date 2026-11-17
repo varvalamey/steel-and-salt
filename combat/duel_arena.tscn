@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://bpu4y1to56cu2"]
+
+[ext_resource type="Script" uid="uid://cijnb84trky0m" path="res://combat/duel_arena.gd" id="1_arena"]
+[ext_resource type="PackedScene" path="res://combat/ghost.tscn" id="2_ghost"]
+[ext_resource type="Script" uid="uid://bcj7lk38vthti" path="res://combat/player_duelist.gd" id="3_duelist"]
+[ext_resource type="Script" uid="uid://b0qrls3sctfry" path="res://combat/duel_input.gd" id="4_input"]
+[ext_resource type="Script" uid="uid://d2n6y4h07c3fg" path="res://combat/concentration.gd" id="5_concentration"]
+[ext_resource type="Script" uid="uid://bjt7trp33l85a" path="res://combat/warmth.gd" id="6_warmth"]
+[ext_resource type="PackedScene" path="res://combat/duel_hud.tscn" id="7_hud"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_salt"]
+albedo_color = Color(0.95, 0.95, 0.92, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_trigger"]
+radius = 1.2
+
+[node name="DuelArena" type="Node3D" unique_id=770879805 node_paths=PackedStringArray("ghost", "duelist", "duel_camera", "player_mark", "trigger")]
+script = ExtResource("1_arena")
+ghost = NodePath("Ghost")
+duelist = NodePath("PlayerDuelist")
+duel_camera = NodePath("DuelCamera")
+player_mark = NodePath("PlayerMark")
+trigger = NodePath("Trigger")
+
+[node name="SaltCircle" type="CSGCylinder3D" parent="." unique_id=588467309]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+radius = 1.6
+height = 0.02
+sides = 48
+material = SubResource("Mat_salt")
+
+[node name="Inner" type="CSGCylinder3D" parent="SaltCircle" unique_id=2075745405]
+operation = 2
+radius = 1.5
+height = 0.04
+sides = 48
+
+[node name="Trigger" type="Area3D" parent="." unique_id=1306252789]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trigger" unique_id=1882752809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_trigger")
+
+[node name="PlayerMark" type="Marker3D" parent="." unique_id=1048795831]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0724463, 0, -0.30302894)
+
+[node name="Ghost" parent="." unique_id=1277725955 instance=ExtResource("2_ghost")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, 0)
+
+[node name="DuelCamera" type="Camera3D" parent="." unique_id=254422591]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.15, 1.65, 0.6749524)
+fov = 50.0
+
+[node name="GhostLight" type="OmniLight3D" parent="." unique_id=183824515]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 2.1, 0)
+light_color = Color(0.7, 0.85, 1, 1)
+light_energy = 0.8
+omni_range = 4.0
+
+[node name="PlayerDuelist" type="Node" parent="." unique_id=111995466 node_paths=PackedStringArray("input", "concentration", "warmth")]
+script = ExtResource("3_duelist")
+input = NodePath("DuelInput")
+concentration = NodePath("Concentration")
+warmth = NodePath("Warmth")
+
+[node name="DuelInput" type="Node" parent="PlayerDuelist" unique_id=1636578731]
+script = ExtResource("4_input")
+
+[node name="Concentration" type="Node" parent="PlayerDuelist" unique_id=1836152412]
+script = ExtResource("5_concentration")
+
+[node name="Warmth" type="Node" parent="PlayerDuelist" unique_id=1191711693]
+script = ExtResource("6_warmth")
+
+[node name="DuelHud" parent="." unique_id=1816929488 node_paths=PackedStringArray("arena") instance=ExtResource("7_hud")]
+arena = NodePath("..")
