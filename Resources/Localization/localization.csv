@@ -1,6 +1,7 @@
 keys,en,ru
 MENU_MAIN_NEWGAME,New game,Новая игра
 MENU_MAIN_CONTINUE,Continue,Продолжить
+MENU_MAIN_PLAY,Play,Играть
 MENU_MAIN_SETTINGS,Settings,Настройки
 MENU_MAIN_CREDITS,Credits,Титры
 MENU_MAIN_EXIT,Exit,Выйти
