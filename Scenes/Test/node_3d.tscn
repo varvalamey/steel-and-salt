@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://d13ohbnhddrdx"]
 
+[ext_resource type="PackedScene" path="res://Scenes/Prefabs/UI/Menus/MenuPause.tscn" id="99_pause"]
+
 [ext_resource type="Script" uid="uid://u24bdhjbtwyi" path="res://Scripts/Interaction/Interactor.cs" id="1_kyfn6"]
 [ext_resource type="Script" uid="uid://clikj6uf6xxsh" path="res://Scripts/UI/Journal/JournalPickup.cs" id="2_5i21k"]
 [ext_resource type="Resource" uid="uid://d3vfke6oj5138" path="res://Resources/Journal/Notes/TestNote.tres" id="3_mr8tt"]
@@ -48,3 +50,8 @@ Entry = ExtResource("4_mr8tt")
 shape = SubResource("BoxShape3D_3uvyx")
 
 [node name="Journal" parent="." unique_id=1614056806 instance=ExtResource("5_41ure")]
+
+[node name="PauseLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="MenuPause" parent="PauseLayer" instance=ExtResource("99_pause")]

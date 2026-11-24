@@ -1,9 +1,56 @@
 [gd_scene format=3 uid="uid://d0dac4hqspy26"]
 
+[ext_resource type="Script" uid="uid://5m1hbi8xi0rs" path="res://Scripts/UI/Menus/MenuPause.cs" id="1_pause"]
+
 [node name="MenuPause" type="Control" unique_id=1398047756]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_pause")
+
+[node name="Backdrop" type="ColorRect" parent="." unique_id=665180383]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.16078432)
+
+[node name="Center" type="CenterContainer" parent="." unique_id=1847446656]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buttons" type="VBoxContainer" parent="Center" unique_id=664061827]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="Center/Buttons" unique_id=358918958]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="Resume" type="Button" parent="Center/Buttons" unique_id=906071040]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Resume"
+
+[node name="Settings" type="Button" parent="Center/Buttons" unique_id=260974824]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "MENU_MAIN_SETTINGS"
+
+[node name="MainMenu" type="Button" parent="Center/Buttons" unique_id=663904822]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Main Menu"

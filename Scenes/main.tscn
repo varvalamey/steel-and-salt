@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://d2fjhv5mhcyki"]
 
+[ext_resource type="PackedScene" path="res://Scenes/Prefabs/UI/Menus/MenuPause.tscn" id="99_pause"]
+
 [node name="main" type="Node3D" unique_id=579114706]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=67068701]
@@ -124,3 +126,8 @@ spot_range = 2.0
 [node name="SpotLight3D3" type="SpotLight3D" parent="." unique_id=64148700]
 transform = Transform3D(1, 0, 0, 0, 5.9604645e-08, 0.99999994, 0, -0.99999994, 5.9604645e-08, -0.64999986, 0.7431524, 1.1818402)
 spot_range = 2.0
+
+[node name="PauseLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="MenuPause" parent="PauseLayer" instance=ExtResource("99_pause")]
