@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Journal="*res://Scripts/UI/Journal/JournalManager.cs"
+LocalizationManager="*res://Scripts/UI/Menus/LocalizationManager.cs"
 
 [display]
 

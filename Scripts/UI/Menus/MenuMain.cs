@@ -19,7 +19,7 @@ public partial class MenuMain : Control
     [Export] private PackedScene scnSaveSelection;
     [Export] private PackedScene scnSettings;
     [Export] private PackedScene scnCredits;
-    [Export] private PackedScene scnConfirmation;
+    [Export] private PopupConfirmation popup;
 
     [ExportSubgroup("Game Entry")]
     [Export] private PackedScene scnGameLevel;
@@ -29,9 +29,9 @@ public partial class MenuMain : Control
     public override void _Ready()
     {
         btnPlay.Pressed += () => OverlayOpen(scnSaveSelection);
-        btnSettings.Pressed += ;
-        btnCredits.Pressed += ;
-        btnQuit.Pressed += ;
+        btnSettings.Pressed += () => OverlayOpen(scnSettings);
+        btnCredits.Pressed += () => OverlayOpen(scnCredits);
+        btnQuit.Pressed += () => popup.Open(OnQuitPressed, null);
     }
 
     private void OverlayOpen(PackedScene scn)
@@ -44,7 +44,7 @@ public partial class MenuMain : Control
         else GD.PrintErr("Overlay is not assigned in inspector");
     }
 
-    private void OverlayClose(Control overlay)
+    public void OverlayClose(Control overlay)
     {
         if (overlay != null && overlay.GetParent() == OverlayContainer)
         {
@@ -53,5 +53,9 @@ public partial class MenuMain : Control
         }
     }
 
+    private void OnQuitPressed()
+    {
+        GetTree().Quit();
+    }
 
 }
