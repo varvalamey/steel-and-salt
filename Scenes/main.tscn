@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" path="res://player/player.tscn" id="1_player"]
 [ext_resource type="PackedScene" path="res://combat/duel_arena.tscn" id="2_duel_arena"]
+[ext_resource type="PackedScene" path="res://Scenes/Prefabs/UI/Menus/MenuPause.tscn" id="99_pause"]
 
 [node name="main" type="Node3D" unique_id=579114706]
 
@@ -131,3 +132,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.75, -0.94, 1.75)
 
 [node name="DuelArena" parent="." instance=ExtResource("2_duel_arena")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.275, -0.94, 2.9)
+
+[node name="PauseLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="MenuPause" parent="PauseLayer" instance=ExtResource("99_pause")]

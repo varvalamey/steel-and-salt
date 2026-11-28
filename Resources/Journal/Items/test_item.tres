@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="JournalEntry" format=3 uid="uid://b6uaj6g035dsk"]
+
+[ext_resource type="Script" uid="uid://dol07sc36kd6r" path="res://Scripts/UI/Journal/JournalEntry.cs" id="1_a5bf6"]
+
+[sub_resource type="Gradient" id="Gradient_a5bf6"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_syia5"]
+gradient = SubResource("Gradient_a5bf6")
+fill_to = Vector2(0.84347826, 0.8695652)
+
+[sub_resource type="Gradient" id="Gradient_0m0nh"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0o6a0"]
+gradient = SubResource("Gradient_0m0nh")
+fill_from = Vector2(0.5, 0.09130435)
+fill_to = Vector2(0.052173913, 0.4478261)
+
+[resource]
+script = ExtResource("1_a5bf6")
+Id = "testitem"
+Section = 1
+Title = "itteemst"
+Description = "testicles"
+Icon = SubResource("GradientTexture2D_syia5")
+Illustration = SubResource("GradientTexture2D_0o6a0")
+metadata/_custom_type_script = "uid://dol07sc36kd6r"

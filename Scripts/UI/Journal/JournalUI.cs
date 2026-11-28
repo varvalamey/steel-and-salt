@@ -101,7 +101,7 @@ public partial class JournalUI : Control
 
     public override void _UnhandledInput(InputEvent @event)
     {
-        if (@event.IsActionPressed(ToggleAction))
+        if (@event.IsActionPressed(ToggleAction) && (IsOpen || !GetTree().Paused))
         {
             Toggle();
             GetViewport().SetInputAsHandled();

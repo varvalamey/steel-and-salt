@@ -1,0 +1,256 @@
+[gd_scene format=3 uid="uid://brwhmy3tcmjen"]
+
+[ext_resource type="Script" uid="uid://bnr80nlr4pegn" path="res://Scripts/UI/Menus/MenuSettings.cs" id="1_2mxg4"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_2mxg4"]
+color = Color(1, 1, 1, 1)
+grow_begin = 4.0
+grow_end = 4.0
+thickness = 2
+
+[sub_resource type="Theme" id="Theme_r0b7t"]
+TabContainer/constants/side_margin = 0
+TabContainer/constants/tab_separation = 4
+
+[node name="SettingsMenu" type="Control" unique_id=523148531 node_paths=PackedStringArray("_languageOption")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2mxg4")
+_languageOption = NodePath("PanelContainer/MarginContainer/VBoxContainer/MarginContainer/OptionButton")
+
+[node name="Background" type="ColorRect" parent="." unique_id=91327222]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.37996623, 0.17256993, 2.4065375e-08, 0.4862745)
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1736036195]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=470463957]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1324248464]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="MarginContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=650620425]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=1215916678]
+layout_mode = 2
+text = "MENU_SETTINGS_TITLE"
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=1653443274]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=900177558]
+layout_mode = 2
+text = "MENU_SETTINGS_LANGUAGE"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="PanelContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=183965210]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "ru"
+popup/item_0/id = 0
+popup/item_1/text = "en"
+popup/item_1/id = 1
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=502431417]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_2mxg4")
+
+[node name="TabContainer" type="TabContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1546433556]
+custom_minimum_size = Vector2(700, 320)
+layout_mode = 2
+theme = SubResource("Theme_r0b7t")
+current_tab = 0
+
+[node name="MENU_SETTINGS_CONTROLS" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer" unique_id=1152611690]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_CONTROLS" unique_id=505629853]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_CONTROLS/HBoxContainer" unique_id=596671935]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "MENU_SETTINGS_FORWARD"
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_CONTROLS/HBoxContainer" unique_id=1048247271]
+custom_minimum_size = Vector2(40, 24)
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_CONTROLS" unique_id=1105727235]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_CONTROLS/HBoxContainer2" unique_id=1167473699]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "MENU_SETTINGS_BACKWARDS"
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_CONTROLS/HBoxContainer2" unique_id=1552966864]
+custom_minimum_size = Vector2(40, 24)
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_CONTROLS" unique_id=1534644258]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_CONTROLS/HBoxContainer3" unique_id=141162330]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "MENU_SETTINGS_LEFT"
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_CONTROLS/HBoxContainer3" unique_id=1153099094]
+custom_minimum_size = Vector2(40, 24)
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_CONTROLS" unique_id=2136281848]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_CONTROLS/HBoxContainer4" unique_id=986244098]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "MENU_SETTINGS_RIGHT"
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_CONTROLS/HBoxContainer4" unique_id=1922853103]
+custom_minimum_size = Vector2(40, 24)
+layout_mode = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_CONTROLS" unique_id=1044280391]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_CONTROLS/HBoxContainer5" unique_id=396379750]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "MENU_SETTINGS_INTERACT"
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_CONTROLS/HBoxContainer5" unique_id=1627514135]
+custom_minimum_size = Vector2(40, 24)
+layout_mode = 2
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_CONTROLS" unique_id=1258958077]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_CONTROLS/HBoxContainer6" unique_id=417450185]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "MENU_SETTINGS_INVENTORY"
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_CONTROLS/HBoxContainer6" unique_id=2059591350]
+custom_minimum_size = Vector2(40, 24)
+layout_mode = 2
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_CONTROLS" unique_id=565530706]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_CONTROLS/HBoxContainer7" unique_id=768984734]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "MENU_SETTINGS_JOURNAL"
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_CONTROLS/HBoxContainer7" unique_id=1393456527]
+custom_minimum_size = Vector2(40, 24)
+layout_mode = 2
+
+[node name="MENU_SETTINGS_SOUND" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer" unique_id=236584630]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_SOUND" unique_id=367196753]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_SOUND/HBoxContainer" unique_id=1116586098]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "MENU_SETTINGS_VOLUMEGENERAL"
+
+[node name="HSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_SOUND/HBoxContainer" unique_id=702981765]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+value = 80.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_SOUND" unique_id=48320282]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_SOUND/HBoxContainer2" unique_id=1415531931]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "MENU_SETTINGS_VOLUMEMUSIC"
+
+[node name="HSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_SOUND/HBoxContainer2" unique_id=1464233806]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+value = 80.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_SOUND" unique_id=2065758987]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_SOUND/HBoxContainer3" unique_id=191433154]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "MENU_SETTINGS_VOLUMESFX"
+
+[node name="HSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_SOUND/HBoxContainer3" unique_id=2102371734]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+value = 80.0
+
+[node name="MENU_SETTINGS_VIDEO" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer" unique_id=17228725]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_VIDEO" unique_id=122971886]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_VIDEO/HBoxContainer" unique_id=1702350635]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "MENU_SETTINGS_BRIGHTNESS"
+
+[node name="HSlider" type="HSlider" parent="PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_VIDEO/HBoxContainer" unique_id=1085970625]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+value = 50.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1213114864]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 10
+
+[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=33608350]
+layout_mode = 2
+text = "MENU_SETTINGS_SAVE"
+
+[node name="Button2" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1261595811]
+layout_mode = 2
+text = "MENU_SETTINGS_CANCEL"

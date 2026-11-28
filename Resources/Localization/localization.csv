@@ -1,6 +1,7 @@
 keys,en,ru
 MENU_MAIN_NEWGAME,New game,Новая игра
 MENU_MAIN_CONTINUE,Continue,Продолжить
+MENU_MAIN_PLAY,Play,Играть
 MENU_MAIN_SETTINGS,Settings,Настройки
 MENU_MAIN_CREDITS,Credits,Титры
 MENU_MAIN_EXIT,Exit,Выйти
@@ -58,3 +59,6 @@ Red — ghost's swing (block it)   Blue — ghost's guard (don't hit it)
 Full focus: SPACE — counter","Держи W/A/D/S — зона   ЛКМ — атака   ПКМ — блок
 Красная — замах призрака (блокируй)   Синяя — защита призрака (туда не бей)
 Полная концентрация: ПРОБЕЛ — контратака"
+CONFIRMATION_DEFAULT_TEXT,Are you sure?,Вы уверены?
+CONFIRMATION_DEFAULT_CONFIRM,Yes,Да
+CONFIRMATION_DEFAULT_CANCEL,No,Нет

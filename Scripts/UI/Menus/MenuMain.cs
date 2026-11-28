@@ -1,74 +1,61 @@
 using Godot;
+using System;
 
 namespace SteelAndSalt.Menus;
 
-/// <summary>
-/// Главное меню. Кнопки открывают оверлеи (выбор сохранения, настройки, титры, подтверждение выхода)
-/// поверх меню — инстансы префабов добавляются в OverlayContainer.
-/// </summary>
 public partial class MenuMain : Control
 {
     [ExportGroup("Buttons")]
-    [Export] private Button PlayButton { get; set; }
-    [Export] private Button SettingsButton { get; set; }
-    [Export] private Button CreditsButton { get; set; }
-    [Export] private Button QuitButton { get; set; }
+    [Export] private Button btnPlay;
+    [Export] private Button btnSettings;
+    [Export] private Button btnCredits;
+    [Export] private Button btnQuit;
 
     [ExportGroup("Overlay")]
     [ExportSubgroup("Container")]
-    /// <summary>Куда добавляются открытые оверлеи.</summary>
-    [Export] private Control OverlayContainer { get; set; }
+    [Export] private Control OverlayContainer;
 
     [ExportSubgroup("Prefabs")]
-    [Export] private PackedScene SaveSelectionScene { get; set; }
-    [Export] private PackedScene SettingsScene { get; set; }
-    [Export] private PackedScene CreditsScene { get; set; }
-    /// <summary>Подтверждение выхода. Пусто — игра закрывается сразу.</summary>
-    [Export] private PackedScene ConfirmationScene { get; set; }
+    [Export] private PackedScene scnSaveSelection;
+    [Export] private PackedScene scnSettings;
+    [Export] private PackedScene scnCredits;
+    [Export] private PopupConfirmation popup;
 
     [ExportSubgroup("Game Entry")]
-    /// <summary>Уровень, который загружается после выбора сохранения.</summary>
-    [Export] private PackedScene GameLevelScene { get; set; }
+    [Export] private PackedScene scnGameLevel;
 
-    private string _saveFilePath;
+    private string SAVE_FILE_PATH;
 
     public override void _Ready()
     {
-        if (PlayButton is not null) PlayButton.Pressed += () => OverlayOpen(SaveSelectionScene);
-        if (SettingsButton is not null) SettingsButton.Pressed += () => OverlayOpen(SettingsScene);
-        if (CreditsButton is not null) CreditsButton.Pressed += () => OverlayOpen(CreditsScene);
-        if (QuitButton is not null) QuitButton.Pressed += OnQuitPressed;
+        btnPlay.Pressed += () => OverlayOpen(scnSaveSelection);
+        btnSettings.Pressed += () => OverlayOpen(scnSettings);
+        btnCredits.Pressed += () => OverlayOpen(scnCredits);
+        btnQuit.Pressed += () => popup.Open(OnQuitPressed, null);
     }
 
-    // --- Оверлеи ---
-
-    private Control OverlayOpen(PackedScene scene)
+    private void OverlayOpen(PackedScene scn)
     {
-        if (scene is null || OverlayContainer is null)
+        if (scn != null)
         {
-            GD.PushError("MenuMain: оверлей или OverlayContainer не назначены в инспекторе.");
-            return null;
+            Control overlayInstance = scn.Instantiate<Control>();
+            OverlayContainer.AddChild(overlayInstance);
         }
-
-        var overlay = scene.Instantiate<Control>();
-        OverlayContainer.AddChild(overlay);
-        return overlay;
+        else GD.PrintErr("Overlay is not assigned in inspector");
     }
 
-    private void OverlayClose(Control overlay)
+    public void OverlayClose(Control overlay)
     {
-        if (overlay is null || overlay.GetParent() != OverlayContainer)
-            return;
-
-        OverlayContainer.RemoveChild(overlay);
-        overlay.QueueFree();
+        if (overlay != null && overlay.GetParent() == OverlayContainer)
+        {
+            OverlayContainer.RemoveChild(overlay);
+            overlay.QueueFree();
+        }
     }
 
     private void OnQuitPressed()
     {
-        if (ConfirmationScene is null)
-            GetTree().Quit();
-        else
-            OverlayOpen(ConfirmationScene);
+        GetTree().Quit();
     }
+
 }
