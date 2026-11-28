@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="GhostPhase" format=3]
+
+[ext_resource type="Script" path="res://combat/ghost_phase.gd" id="1_phase"]
+
+[resource]
+script = ExtResource("1_phase")
+title = "COMBAT_PHASE_2"
+idle_time_min = 1.0
+idle_time_max = 1.8
+windup_time = 0.85
+recover_time = 0.55
+guard_change_interval = 1.8
+counters_to_break = 1
+stagger_time = 1.5

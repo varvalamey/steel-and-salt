@@ -2,7 +2,7 @@
 
 A two-section journal (**Notes** and **Items**). Each section opens on a **contents page** that lists only the entries the player has picked up. Clicking a link opens that entry's **page**. Bookmark buttons switch between sections. A new entry carries a **"!"** marker until the player opens its page for the first time.
 
-All scripts are in `Scripts/Journal/` under the namespace `SteelAndSalt.Journal`.
+All scripts are in `Scripts/UI/Journal/` under the namespace `SteelAndSalt.Journal`.
 
 ---
 
@@ -53,7 +53,7 @@ The system has three layers. Each layer only talks to the one below it.
 
 ## 2. Setup checklist
 
-1. **Autoload:** Project Settings → Globals → Autoload has `Journal` → `res://Scripts/Journal/JournalManager.cs`. It's already added in `project.godot`.
+1. **Autoload:** Project Settings → Globals → Autoload has `Journal` → `res://Scripts/UI/Journal/JournalManager.cs`. It's already added in `project.godot`.
 2. **Input action:** `journal_toggle` exists in the Input Map (J). The name must match `JournalUI.ToggleAction`.
 3. **Journal scene:** placed in the level or HUD, with all `JournalUI` exports assigned.
 4. **Entries:** one `.tres` file per note or item.

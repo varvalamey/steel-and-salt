@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://b2allhimq627p"]
+
+[ext_resource type="Script" uid="uid://bq4geg7yrhevb" path="res://player/player.gd" id="1_script"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_body"]
+radius = 0.28
+height = 1.75
+
+[sub_resource type="StandardMaterial3D" id="Mat_coat"]
+albedo_color = Color(0.16, 0.3, 0.24, 1)
+roughness = 0.85
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_body"]
+material = SubResource("Mat_coat")
+radius = 0.28
+height = 1.75
+
+[sub_resource type="StandardMaterial3D" id="Mat_lamp"]
+albedo_color = Color(0.95, 0.6, 0.2, 1)
+emission_enabled = true
+emission = Color(0.95, 0.55, 0.15, 1)
+emission_energy_multiplier = 0.8
+
+[sub_resource type="BoxMesh" id="BoxMesh_facing"]
+material = SubResource("Mat_lamp")
+size = Vector3(0.3, 0.08, 0.1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cam"]
+radius = 0.15
+
+[node name="Player" type="CharacterBody3D" unique_id=2073426112]
+script = ExtResource("1_script")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1749757849]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875, 0)
+shape = SubResource("CapsuleShape3D_body")
+
+[node name="Model" type="Node3D" parent="." unique_id=1792253720]
+
+[node name="Body" type="MeshInstance3D" parent="Model" unique_id=22630674]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875, 0)
+mesh = SubResource("CapsuleMesh_body")
+
+[node name="Facing" type="MeshInstance3D" parent="Model" unique_id=1873732289]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.26)
+mesh = SubResource("BoxMesh_facing")
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=1202912947]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="PitchPivot" type="Node3D" parent="CameraPivot" unique_id=372911565]
+transform = Transform3D(1, 0, 0, 0, 0.90630805, 0.42261842, 0, -0.42261842, 0.90630805, 0, 0, 0)
+
+[node name="ShoulderArm" type="SpringArm3D" parent="CameraPivot/PitchPivot" unique_id=1996920540]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_cam")
+spring_length = 0.4
+
+[node name="BackArm" type="SpringArm3D" parent="CameraPivot/PitchPivot/ShoulderArm" unique_id=838410754]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+shape = SubResource("SphereShape3D_cam")
+spring_length = 2.6
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/PitchPivot/ShoulderArm/BackArm" unique_id=1061523453]
+fov = 60.0

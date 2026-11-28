@@ -3,11 +3,11 @@ using Godot;
 
 namespace SteelAndSalt.Journal;
 
-
-// Окно журнала. Два раздела (Записки / Предметы), переключаются закладками.
-// В каждом разделе первая страница — оглавление (только полученные записи),
-// по ссылке открывается страница записи. Непрочитанные помечены «!», пока страницу не открыли.
-
+/// <summary>
+/// Окно журнала. Два раздела (Записки / Предметы), переключаются закладками.
+/// В каждом разделе первая страница — оглавление (только полученные записи),
+/// по ссылке открывается страница записи. Непрочитанные помечены «!», пока страницу не открыли.
+/// </summary>
 [GlobalClass]
 public partial class JournalUI : Control
 {
@@ -16,12 +16,12 @@ public partial class JournalUI : Control
 
     [ExportGroup("Behaviour")]
     [Export] public StringName ToggleAction { get; set; } = "journal_toggle";
-    // Ставить игру на паузу, пока журнал открыт
+    /// <summary>Ставить игру на паузу, пока журнал открыт.</summary>
     [Export] public bool PauseGame { get; set; } = true;
     [Export] public JournalSection StartSection { get; set; } = JournalSection.Notes;
 
     [ExportGroup("Bookmarks")]
-    // Контейнер, в котором лежат JournalBookmark (ищутся среди прямых детей)
+    /// <summary>Контейнер, в котором лежат JournalBookmark (ищутся среди прямых детей).</summary>
     [Export] private Control BookmarkContainer { get; set; }
 
     [ExportGroup("Contents Page")]
@@ -81,7 +81,7 @@ public partial class JournalUI : Control
         _journal = JournalManager.Instance;
         if (_journal is null)
         {
-            GD.PushError("JournalUI: autoload JournalManager не найден. Добавь Scripts/Journal/JournalManager.cs в Autoload.");
+            GD.PushError("JournalUI: autoload JournalManager не найден. Добавь Scripts/UI/Journal/JournalManager.cs в Autoload.");
             return;
         }
         _journal.EntryAdded += OnEntryAdded;
@@ -121,7 +121,7 @@ public partial class JournalUI : Control
         else Open();
     }
 
-    // <summary>Открыть журнал. section == null — последний открытый раздел.</summary>
+    /// <summary>Открыть журнал. section == null — последний открытый раздел.</summary>
     public void Open(JournalSection? section = null)
     {
         if (!IsOpen)
@@ -139,7 +139,7 @@ public partial class JournalUI : Control
         ShowContents(section ?? CurrentSection);
     }
 
-    // <summary>Открыть журнал сразу на странице записи (например, «Прочитать сейчас» после подбора).</summary>
+    /// <summary>Открыть журнал сразу на странице записи (например, «Прочитать сейчас» после подбора).</summary>
     public void Open(JournalEntry entry)
     {
         Open(entry.Section);

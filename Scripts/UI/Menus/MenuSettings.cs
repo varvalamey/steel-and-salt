@@ -41,7 +41,7 @@ public partial class MenuSettings : Control
         _keyButtons["move_right"] = GetNode<Button>("PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_CONTROLS/HBoxContainer4/Button");
         _keyButtons["interact"] = GetNode<Button>("PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_CONTROLS/HBoxContainer5/Button");
         _keyButtons["inventory"] = GetNode<Button>("PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_CONTROLS/HBoxContainer6/Button");
-        _keyButtons["journal"] = GetNode<Button>("PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_CONTROLS/HBoxContainer7/Button");
+        _keyButtons["journal_toggle"] = GetNode<Button>("PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_CONTROLS/HBoxContainer7/Button");
 
         // Слайдеры
         _sliderMaster = GetNode<Slider>("PanelContainer/MarginContainer/VBoxContainer/TabContainer/MENU_SETTINGS_SOUND/HBoxContainer/HSlider");
