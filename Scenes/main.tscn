@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://d2fjhv5mhcyki"]
 
-[ext_resource type="PackedScene" path="res://player/player.tscn" id="1_player"]
-[ext_resource type="PackedScene" path="res://combat/duel_arena.tscn" id="2_duel_arena"]
-[ext_resource type="PackedScene" path="res://Scenes/Prefabs/UI/Menus/MenuPause.tscn" id="99_pause"]
+[ext_resource type="PackedScene" uid="uid://b2allhimq627p" path="res://player/player.tscn" id="1_player"]
+[ext_resource type="PackedScene" uid="uid://bpu4y1to56cu2" path="res://combat/duel_arena.tscn" id="2_duel_arena"]
+[ext_resource type="PackedScene" uid="uid://d0dac4hqspy26" path="res://Scenes/Prefabs/UI/Menus/MenuPause.tscn" id="99_pause"]
 
 [node name="main" type="Node3D" unique_id=579114706]
 
@@ -15,8 +15,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.875, -1.077706, 1.5)
 use_collision = true
 size = Vector3(13.75, 0.272217, 5.75)
 
+[node name="floor2" type="CSGBox3D" parent="." unique_id=708338245]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.4, -1.077706, 4.925)
+use_collision = true
+size = Vector3(4.3, 0.272217, 4.5)
+
 [node name="stairs" type="CSGCombiner3D" parent="." unique_id=385906196]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3025, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.500001, -2.6025, -1.8)
 use_collision = true
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="stairs" unique_id=2122925588]
@@ -91,8 +96,13 @@ operation = 2
 size = Vector3(1.25, 2, 0.75)
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="room 1 floor" unique_id=1086925582]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.274992, 0.293441, 3.279541)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.074992, 0.293441, 3.279541)
 size = Vector3(2.5, 2.5, 0.319824)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="room 1 floor/CSGBox3D8" unique_id=4855557]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, -0.25, -0.09999895)
+operation = 2
+size = Vector3(1.25, 2, 0.75)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="room 1 floor" unique_id=1683843323]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.274992, 0.293441, -0.014893)
@@ -130,10 +140,10 @@ transform = Transform3D(1, 0, 0, 0, 5.9604645e-08, 0.99999994, 0, -0.99999994, 5
 [node name="Player" parent="." unique_id=443046658 instance=ExtResource("1_player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.75, -0.94, 1.75)
 
-[node name="DuelArena" parent="." instance=ExtResource("2_duel_arena")]
+[node name="DuelArena" parent="." unique_id=1943525431 instance=ExtResource("2_duel_arena")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.275, -0.94, 2.9)
 
-[node name="PauseLayer" type="CanvasLayer" parent="."]
+[node name="PauseLayer" type="CanvasLayer" parent="." unique_id=979178093]
 layer = 10
 
-[node name="MenuPause" parent="PauseLayer" instance=ExtResource("99_pause")]
+[node name="MenuPause" parent="PauseLayer" unique_id=13858652 instance=ExtResource("99_pause")]
